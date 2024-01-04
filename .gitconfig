@@ -1,0 +1,26 @@
+[alias]
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    br = branch
+    ca = !git add -A && git status && git commit --allow-empty-message -m ''
+    st = status
+
+[color]
+    ui = auto
+
+[core]
+    editor = emacs -nw
+    excludesfile = ~/.gitignore_global
+
+[init]
+    defaultBranch = main
+
+[credential]
+    credentialStore = cache
+    cacheOptions = --timeout=3600
+
+# Git Large File Storage (LFS)
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
