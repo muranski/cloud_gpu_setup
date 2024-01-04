@@ -47,12 +47,6 @@ cp ~/.bashrc $bashrc_backup
     echo "export HISTIGNORE='pwd:history'"
 } >> ~/.bashrc
 
-# Configure locale
-{
-    echo
-    echo 'export LANG=en_US.UTF-8'
-} >> ~/.bashrc
-
 # Set up emacs as the default editor
 cp -R "${dir}/.emacs.d" ~
 {
