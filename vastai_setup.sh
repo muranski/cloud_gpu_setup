@@ -13,12 +13,6 @@ fi
 # Set the internal field separator
 IFS=$'\n\t'
 
-# Check if GIT_USER_NAME and GIT_USER_EMAIL are set
-if [[ ! -v GIT_USER_NAME ]] || [[ ! -v GIT_USER_EMAIL ]]; then
-    echo "GIT_USER_NAME and GIT_USER_EMAIL must be set"
-    exit 1
-fi
-
 # Resolve the directory of the script
 dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
