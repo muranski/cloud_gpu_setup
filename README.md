@@ -10,13 +10,12 @@ source ~/.bashrc
 git config --global user.name <your git user name>
 git config --global user.email <your git user email>
 ```
-Replace `<your git user name>` and `<your git user email>` with your actual Git user
-email address.
+Replace `<your git user name>` and `<your git user email>` with your actual Git
+username and email address, respectively.
 
 ## Detailed Setup Instructions
 
-Set up your [Vast.ai](https://vast.ai/) cloud GPU workstation by following these
-steps:
+Set up your [Vast.ai](https://vast.ai/) cloud GPU workstation by following these steps:
 
 ### 1. Prerequisites
 Ensure that you have:
@@ -41,8 +40,10 @@ Apply the changes by reloading your shell configuration:
 source ~/.bashrc
 ```
 
-### 5. Configure Git with your user name and email:
+### 5. Configure Git with Your Username and Email
 ```bash
 git config --global user.name <your git user name>
 git config --global user.email <your git user email>
 ```
+Replace `<your git user name>` and `<your git user email>` with your actual Git
+username and email address, respectively.
