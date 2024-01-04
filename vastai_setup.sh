@@ -61,11 +61,9 @@ cp -R "${dir}/.emacs.d" ~
     echo 'alias e="${EDITOR}"'
 } >> ~/.bashrc
 
-# Configure Git
+# Set up git
 cp "${dir}/.gitconfig" ~
 cp "${dir}/.gitignore_global" ~
-git config --global user.name "${GIT_USER_NAME}"
-git config --global user.email "${GIT_USER_EMAIL}"
 
 # Install and configure git-credential-manager
 wget "https://github.com/git-ecosystem/git-credential-manager/releases/download/v2.4.1/gcm-linux_amd64.2.4.1.deb" -O /tmp/gcmcore.deb

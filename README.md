@@ -5,12 +5,13 @@ Quickly set up your [Vast.ai](https://vast.ai/) cloud GPU workstation with these
 commands:
 ```bash
 git clone https://github.com/muranski/cloud_gpu_setup /tmp/cloud_gpu_setup
-GIT_USER_NAME=<your git user name> \
-GIT_USER_EMAIL=<your git user email> \
 /tmp/cloud_gpu_setup/vastai_setup.sh
 source ~/.bashrc
+git config --global user.name <your git user name>
+git config --global user.email <your git user email>
 ```
-Replace `<your git user email>` with your actual Git user email address.
+Replace `<your git user name>` and `<your git user email>` with your actual Git user
+email address.
 
 ## Detailed Setup Instructions
 
@@ -29,10 +30,8 @@ git clone https://github.com/muranski/cloud_gpu_setup /tmp/cloud_gpu_setup
 ```
 
 ### 3. Run the Setup Script
-Execute the setup script with your Git user name and email:
+Execute the setup script:
 ```bash
-GIT_USER_NAME=<your git user name> \
-GIT_USER_EMAIL=<your git user email> \
 /tmp/cloud_gpu_setup/vastai_setup.sh
 ```
 
@@ -40,4 +39,10 @@ GIT_USER_EMAIL=<your git user email> \
 Apply the changes by reloading your shell configuration:
 ```bash
 source ~/.bashrc
+```
+
+### 5. Configure Git with your user name and email:
+```bash
+git config --global user.name <your git user name>
+git config --global user.email <your git user email>
 ```
