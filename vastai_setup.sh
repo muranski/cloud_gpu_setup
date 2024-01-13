@@ -27,7 +27,7 @@ yes | unminimize
 # Update and upgrade package list, and install specified packages
 apt-get update
 apt-get -y upgrade
-apt-get -y install emacs man pass pipx transmission-cli xclip || {
+apt-get -y install emacs htop man pass pipx transmission-cli xclip || {
     echo 'Package installation failed'
     exit 1
 }
@@ -46,6 +46,23 @@ cp ~/.bashrc $bashrc_backup
     echo 'export HISTFILESIZE=$HISTSIZE'
     echo "export HISTIGNORE='pwd:history'"
 } >> ~/.bashrc
+
+# Define custom commands
+cat <<EOL >> ~/.bashrc
+
+# Custom commands.
+cdp() {
+    cd ~/workspace/"\$1"
+}
+_cdp() {
+    local cur=\${COMP_WORDS[COMP_CWORD]}
+    local IFS=\$'\n'
+    local base_path=~/workspace/
+    local options=($(compgen -d "\${base_path}\${cur}" | sed "s|\${base_path}||"))
+    COMPREPLY=("\${options[@]}")
+}
+complete -F _cdp cdp
+EOL
 
 # Set up emacs as the default editor
 cp -R "${dir}/.emacs.d" ~
