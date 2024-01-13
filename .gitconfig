@@ -1,9 +1,3 @@
-[alias]
-    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
-    br = branch
-    ca = !git add -A && git status && git commit --allow-empty-message -m ''
-    st = status
-
 [color]
     ui = auto
 
@@ -24,3 +18,10 @@
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
+
+[alias]
+    aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    br = branch
+    ca = !git add -A && git status && git commit --allow-empty-message -m ''
+    dn = diff --name-only
+    st = status
