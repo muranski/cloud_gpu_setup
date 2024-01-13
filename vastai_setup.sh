@@ -48,21 +48,20 @@ cp ~/.bashrc $bashrc_backup
 } >> ~/.bashrc
 
 # Define custom commands
-cat <<EOL >> ~/.bashrc
-
+echo "
 # Custom commands.
 cdp() {
-    cd ~/workspace/"\$1"
+    cd ~/workspace/p/\"\$1\"
 }
 _cdp() {
     local cur=\${COMP_WORDS[COMP_CWORD]}
     local IFS=\$'\n'
-    local base_path=~/workspace/
-    local options=($(compgen -d "\${base_path}\${cur}" | sed "s|\${base_path}||"))
-    COMPREPLY=("\${options[@]}")
+    local base_path=~/workspace/p/
+    local options=($(compgen -d \"\${base_path}\${cur}\" | sed \"s|\${base_path}||\"))
+    COMPREPLY=(\"\${options[@]}\")
 }
 complete -F _cdp cdp
-EOL
+" >> ~/.bashrc
 
 # Set up emacs as the default editor
 cp -R "${dir}/.emacs.d" ~
