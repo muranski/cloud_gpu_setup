@@ -27,7 +27,7 @@ yes | unminimize
 # Update and upgrade package list, and install specified packages
 apt-get update
 apt-get -y upgrade
-apt-get -y install emacs htop man pass pipx transmission-cli xclip || {
+apt-get -y install emacs htop man pass pipx python3 transmission-cli xclip || {
     echo 'Package installation failed'
     exit 1
 }
