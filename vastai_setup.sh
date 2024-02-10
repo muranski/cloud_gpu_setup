@@ -21,13 +21,17 @@ timezone='Etc/UTC'
 ln -snf "/usr/share/zoneinfo/${timezone}" /etc/localtime
 echo "${timezone}" > /etc/timezone
 
-# Restore minimized packages to make this system more suitable for interactive use.
-yes | unminimize
+# # Restore minimized packages to make this system more suitable for interactive use.
+# yes | unminimize
 
 # Update and upgrade package list, and install specified packages
 apt-get update
 apt-get -y upgrade
-apt-get -y install emacs htop man pass pipx python3 transmission-cli xclip || {
+# apt-get -y install emacs htop man pass pipx python3 transmission-cli xclip || {
+#     echo 'Package installation failed'
+#     exit 1
+# }
+apt-get -y install emacs htop pipx python3 transmission-cli xclip || {
     echo 'Package installation failed'
     exit 1
 }
@@ -51,12 +55,12 @@ cp ~/.bashrc $bashrc_backup
 echo "
 # Custom commands.
 cdp() {
-    cd ~/workspace/p/\"\$1\"
+    cd /workspace/p/\"\$1\"
 }
 _cdp() {
     local cur=\${COMP_WORDS[COMP_CWORD]}
     local IFS=\$'\n'
-    local base_path=~/workspace/p/
+    local base_path=/workspace/p/
     local options=($(compgen -d \"\${base_path}\${cur}\" | sed \"s|\${base_path}||\"))
     COMPREPLY=(\"\${options[@]}\")
 }
